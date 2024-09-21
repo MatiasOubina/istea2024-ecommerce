@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+:root{
+    --clr-main: #4b33a8;
+    --clr-main-light:#785ce9;
+    --clr-white: #ececec; 
+    --clr-gray: #e2e2e2;
+    --clr-red: #961818;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, p, a, input, textarea, ul {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    background-color: var(--clr-main);
+}
+
+aside {
+    padding: 2rem;
+    color: var(--clr-white);
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.logo {
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+
+.texto-footer {
+    color: var(--clr-main-light);
+    font-size: .85rem;
+}
+
+main {
+    background-color: var(--clr-white);
+    margin: 1rem;
+    margin-left: 0;
+    border-radius: 2rem;
+    padding: 3rem;
+}
+
+.titulo-principal {
+    color: var(--clr-main);
+    margin-bottom: 2rem;
+}
+
+.contenedor-productos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.producto-imagen {
+    max-width: 100%;
+    border-radius: 1rem;
+}
+
+.producto-detalles {
+    background-color: var(--clr-main);
+    color: var(--clr-white);
+    padding: .5rem;
+    border-radius: 1rem;
+}
+
+
+/* Contenedor de productos */
+#productos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajusta el número de columnas automáticamente */
+    gap: 20px; /* Espacio entre las tarjetas */
+    padding: 20px; /* Espaciado interno del contenedor */
+}
+
+/* Estilos básicos para las cards */
+.card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column; /* Hace que todos los elementos dentro de la tarjeta estén en columna */
+    justify-content: space-between; /* Distribuye los elementos equitativamente */
+}
+
+.card:hover {
+    transform: scale(1.05); /* Efecto hover */
+}
+
+.card-img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain; /* Ajusta la imagen dentro del espacio disponible */
+    margin: 0 auto 10px; /* Centra la imagen horizontalmente */
+    display: block;
+}
+
+.card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-title {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    flex-grow: 1; /* Permite que el título ocupe el espacio disponible */
+}
+
+.card-text {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 10px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 10px;
+    align-self: center; /* Centra el botón horizontalmente */
+    width: 100%; /* Hace que todos los botones tengan el mismo ancho */
+}
+
+#mensaje{
+    font-size: 20px;
+}
+
+.btn-circular {
+    border-radius: 50%; /* Hace el botón circular */
+    width: 20px; /* Ancho y alto más pequeños */
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0; /* Quita el padding extra */
+    font-size: 16px; /* Tamaño de la fuente más pequeño */
+
+}
+
+.cantidad-producto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px; /* Ajusta el ancho del número para que coincida con los botones */
+    text-align: center; /* Asegura que el número esté centrado */
+    font-size: 15px;
+}
