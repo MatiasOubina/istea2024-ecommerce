@@ -17,117 +17,113 @@
     <link rel="stylesheet" href="./css/main.css">
 </head>
 
-<body>
+<body></body>
+<header class="menu-carrito-contenedor">
+    <h1 class="logo">ISTEA SHOP</I></h1>
+    <!-- Botón del carrito -->
+    <button class="btn position-relative btnCarrito" type="button" data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasCarrito" aria-controls="offcanvasCarrito" style="width: 50px;">
+        <i class="bi bi-cart-fill"></i>
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            0
+        </span>
+    </button>
+    <!-- Fin Botón del carrito -->
+</header>
 
-    <div class="wrapper">
-        <aside>
-            <header>
-                <h1 class="logo">Istea Shop Grupo II</I></h1>
-            </header>
-            <nav>
-                <ul>
-                    <li>
-                        <!-- Menú desplegable para filtrar por categoría -->
-                        <div class="nav-item dropdown">
-                            <button class="boton menu dropdown-toggle" id="navbarDropdownCategorias" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Categorías
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownCategorias">
-                                <li><a class="dropdown-item" href="#" data-categoria="todos">Todos los productos</a>
-                                </li>
-                                <li><a class="dropdown-item" href="#" data-categoria="electronics">Electrónica</a></li>
-                                <li><a class="dropdown-item" href="#" data-categoria="clothing">Ropa</a></li>
-                                <li><a class="dropdown-item" href="#" data-categoria="jewelery">Accesorios</a></li>
-                            </ul>
-                        </div>
-                    </li>
+<main>
+    <nav class="navBusqueda">
+        <!-- Menú Categorías -->
+        <ul class="navbar-nav mb-2 mb-lg-0">
+            <li class="nav-item dropdown">
+                <button class="btn-categorias dropdown-toggle" id="navbarDropdownCategorias" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Categorías
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownCategorias">
+                    <li class="dropdown-item" data-categoria="todos">Todos los productos</li>
+                    <li class="dropdown-item" data-categoria="electronics">Electrónica</li>
+                    <li class="dropdown-item" data-categoria="clothing">Ropa</li>
+                    <li class="dropdown-item" data-categoria="accessories">Accesorios</li>
                 </ul>
-            </nav>
-            <footer>
-                <p class="texto-footer"> © Grupo II 2024 </p>
-            </footer>
-        </aside>
-        <main>
-            <!-- Botón del carrito -->
-            <button class="btn btn-primary position-relative" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasCarrito" aria-controls="offcanvasCarrito" style="width: 50px;">
-                <i class="bi bi-cart-fill"></i>
-                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                    0
-                </span>
-            </button>
-            <!-- Fin Botón del carrito -->
+            </li>
+        </ul>
 
-            <!-- Off-canvas del carrito -->
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasCarrito"
-                aria-labelledby="offcanvasCarritoLabel" style="width: 500px;">
-                <div class="offcanvas-header">
-                    <h5 id="offcanvasCarritoLabel">Carrito de compras</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body">
-                    <div id="mensaje-vacio" style="display: block; text-align: center; margin-top: 20px;">
-                        <p id="mensaje"><b>Todavía no hay productos en tu carrito</b> 😢</p>
-                    </div>
-                    <ul id="carrito-lista" class="list-group mb-3">
-                        <!-- Acá se van agregando los productos -->
-                    </ul>
-                    <div class="d-flex justify-content-between">
-                        <strong id="box-total" style="display: none;">Total:</strong>
-                        <span id="carrito-total" style="display: none;">$0.00</span>
-                    </div>
-                    <div style="display: flex; flex-direction: row-reverse; align-items: center;">
-                        <button id="finalizarCompraBtn" class="btn btn-success w-30 mt-3 me-3"
-                            style="display: none;">Finalizar
-                            Compra</button>
-                        <button id="limpiarCarritoBtn" class="btn btn-warning w-30 mt-3 me-2"
-                            style="display: none;">Limpiar
-                            Carrito</button>
-                    </div>
-                </div>
-            </div>
-            <!--Fin Off-canvas del carrito -->
+        <!-- Barra de búsqueda  /*CAMBIO 22.09.24*/-->
+        <input type="search" id="busqueda" class="form-control ms-3" placeholder=" Buscar...">
+    </nav>
+    <!--Container para los productos-->
+    <div id="productos-container" class="row"></div>
+    <!--Fin Container para los productos-->
+</main>
 
-            <!--Container para los productos-->
-            <div id="productos-container" class="row"></div>
-            <!--Fin ontainer para los productos-->
+<footer class="texto-footer">
+    <p class="txt1"> © ISTEA 2024 || Materia Laboratorio Aplicaciones Web 2C Div. A - Día Viernes </p>
+    <p class="txt2"> Grupo II: Franco de Doná || Gianluca Romau || Juan Baigorria || Matías Oubiña </p>
+</footer>
 
-            <!-- Modal -->
-            <div class="modal fade" id="productoModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Detalles del producto</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="productos-container" class="row"></div>
-            <!-- Fin Modal -->
-        </main>
+<!-- Off-canvas del carrito -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasCarrito" aria-labelledby="offcanvasCarritoLabel"
+    style="width: 500px;">
+    <div class="offcanvas-header">
+        <h5 id="offcanvasCarritoLabel">Carrito de compras</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
+    <div class="offcanvas-body">
+        <div id="mensaje-vacio" style="display: block; text-align: center; margin-top: 20px;">
+            <p id="mensaje"><b>Todavía no hay productos en tu carrito</b> 😢</p>
+        </div>
+        <ul id="carrito-lista" class="list-group mb-3">
+            <!-- Acá se van agregando los productos -->
+        </ul>
+        <div class="d-flex justify-content-between">
+            <strong id="box-total" style="display: none;">Total:</strong>
+            <span id="carrito-total" style="display: none;">$0.00</span>
+        </div>
+        <div style="display: flex; flex-direction: row-reverse; align-items: center;">
+            <button id="finalizarCompraBtn" class="btn btn-success w-30 mt-3 me-3" style="display: none;">Finalizar
+                Compra</button>
+            <button id="limpiarCarritoBtn" class="btn btn-warning w-30 mt-3 me-2" style="display: none;">Limpiar
+                Carrito</button>
+        </div>
+    </div>
+</div>
+<!--Fin Off-canvas del carrito -->
 
-    <!-- Bootstrap CSS -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
-        crossorigin="anonymous"></script>
-    <!--Sweet Alert-->
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <!--TOASTIFY-->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-    <!-- Lógica Propia -->
-    <script type="module" src="./js/index.js"> </script>
+<!-- Modal -->
+<div class="modal fade" id="productoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Detalles del producto</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="productos-container" class="row"></div>
+<!-- Fin Modal -->
+
+
+
+<!-- Bootstrap CSS -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+    crossorigin="anonymous"></script>
+<!--Sweet Alert-->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!--TOASTIFY-->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<!-- Lógica Propia -->
+<script type="module" src="./js/index.js"> </script>
 </body>
 
 </html>

@@ -78,7 +78,7 @@ export function actualizarCarrito() {
                 <img src="${producto.image}" alt="${producto.title}" style="width: 50px; height: 50px; margin-right: 10px;">
                 <div>
                     <p style="margin: 0; font-weight: bold;">${producto.title}</p>
-                    <p style="margin: 0; color: green; font-weight: bold;">$ ${producto.price.toFixed(2)}</p>
+                    <p style="margin: 0; color: green; font-weight: bold;">$ ${producto.price}</p>
            
                 </div>
             </div>

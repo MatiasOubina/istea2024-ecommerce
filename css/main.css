@@ -29,37 +29,59 @@ a{
     text-decoration: none;
 }
 
-.wrapper {
-    display: grid;
-    grid-template-columns: 1fr 4fr;
+body{
     background-color: var(--clr-main);
+    overflow-x: hidden;
 }
 
-aside {
-    padding: 2rem;
-    color: var(--clr-white);
-    position: sticky;
-    top: 0;
-    height: 100vh;
+.btnCarrito{
+    background-color: var(--clr-main-light);
+}
+
+.btnCarrito:hover{
+    background-color: var(--clr-main-light);;
+}
+
+.menu-carrito-contenedor{
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 50px;
+}
+
+.navBusqueda{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 50px;
+    
+}
+
+#busqueda{
+    width: 200px;
+}
+
+.txt1, .txt2{
+    margin: 10px;
 }
 
 .logo {
     font-weight: 400;
     font-size: 1.2rem;
+    color: var(--clr-white);
 }
 
 .texto-footer {
     color: var(--clr-main-light);
-    font-size: .85rem;
+    display: flex;
+    justify-content: space-around;
+    margin: 25px;
 }
 
 main {
     background-color: var(--clr-white);
     margin: 1rem;
-    margin-left: 0;
     border-radius: 2rem;
     padding: 3rem;
 }
@@ -176,4 +198,86 @@ main {
     width: 20px; /* Ajusta el ancho del número para que coincida con los botones */
     text-align: center; /* Asegura que el número esté centrado */
     font-size: 15px;
+}
+
+/* Estilo para el botón de categorías */
+.btn-categorias {
+    background-color: var(--clr-main-light); /* Color principal */   /*CAMBIO 22.09.24*/
+    color: var(--clr-white);           /* Color del texto */
+    padding: 10px 20px;                /* Espaciado interno */
+    font-size: 1rem;                   /* Tamaño del texto */
+    font-weight: 500;                  /* Grosor del texto */
+    border: none;                      /* Sin borde */
+    border-radius: 25px;               /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transiciones suaves */
+}
+
+/* Efecto hover para el botón de categorías */
+.btn-categorias:hover {
+    background-color: var(--clr-main-light); /* Cambia el color en hover */
+    transform: translateY(-2px);             /* Efecto de elevar el botón */
+}
+
+/* Efecto para cuando el botón está en focus (cuando se selecciona con teclado) */
+.btn-categorias:focus {
+    outline: none;                        /* Quitar borde de focus */
+    box-shadow: 0 0 0 4px rgba(75, 51, 168, 0.4); /* Añadir un borde luminoso */
+}
+
+/* Estilos para el dropdown */
+.dropdown-menu {
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para el menú */
+}
+
+.dropdown-item {
+    padding: 10px 20px; /* Espaciado interno */
+    font-size: 1rem;    /* Tamaño del texto */
+    cursor: pointer;
+}
+
+.dropdown-item:hover {
+    background-color: var(--clr-main-light); /* Color de fondo en hover */
+    color: var(--clr-white);                 /* Color del texto en hover */
+}
+
+@media (max-width: 767.98px) {
+    main {
+        margin: 1rem;
+    }
+
+    .texto-footer{
+        flex-direction: column;
+    }
+
+    .txt1{
+        border-right: none;
+        border-bottom: 1px solid white;
+        padding-bottom: 15px ;
+       
+    }
+}
+
+@media (max-width: 540px) {
+    .navBusqueda{
+        flex-direction: column;
+        align-items: center;
+        margin: 8px;
+    }
+
+    #busqueda{
+        margin-top: 15px;
+        width: 250px;
+    }
+}
+
+@media (max-width: 389.98px) {
+    main {
+        margin: 0.5rem;
+    }
+    #productos-container{
+        display: flex;
+        flex-direction: column;
+    }
 }
