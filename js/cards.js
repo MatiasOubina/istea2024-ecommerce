@@ -1,26 +1,27 @@
 // Función para crear las tarjetas
 export function mostrarProductosEnTarjetas(productos) {
     const contenedor = document.getElementById("productos-container");
-    contenedor.innerHTML = "";
 
+    contenedor.innerHTML = "";
+    
     productos.forEach(producto => { //recorro el array de productos
         const tarjeta = document.createElement("div");
         tarjeta.classList.add("card");
-
-
+        
+        
         tarjeta.innerHTML = `
-            <img src="${producto.image}" alt="${producto.title}" class="card-img">
-            <div class="card-body">
-                <h5 class="card-title">${producto.title}</h5>
-                <p class="card-text">$ ${producto.price}</p>
-                <button class="btn btn-info btnVerDetalle" data-id="${producto.id}">Ver detalles</button>
+        <img src="${producto.image}" alt="${producto.title}" class="card-img">
+        <div class="card-body">
+        <h5 class="card-title">${producto.title}</h5>
+        <p class="card-text">$ ${producto.price}</p>
+        <button class="btn btn-info btnVerDetalle" data-id="${producto.id}">Ver detalles</button>
                 
-            </div>
+        </div>
         `;
-
+        
         contenedor.appendChild(tarjeta); // añado la tarjeta al contenedor
     });
-
+    
     //Selecciono todos los botones de los productos
     document.querySelectorAll('.btnVerDetalle').forEach(boton => {
         //Evento escuchador: cuando el usuario hace clic en ver detalle se abre el modal
@@ -29,6 +30,8 @@ export function mostrarProductosEnTarjetas(productos) {
             mostrarDetalleProducto(idProducto, productos);
         });
     });
+    
+   
 }
 
 // Función para mostrar el modal con los detalles del producto

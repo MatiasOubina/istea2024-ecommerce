@@ -5,7 +5,11 @@ import { agregarAlCarrito, finalizarCompra, limpiarCarrito } from './carrito.js'
 // Obtener todos los productos y mostrarlos inicialmente
 document.addEventListener('DOMContentLoaded', async () => {
     const productos = await getProductos();
-    mostrarProductosEnTarjetas(productos);
+
+    setTimeout(() => {
+        mostrarProductosEnTarjetas(productos);
+    }, 1800);
+
 
     // Filtro por categoría cuando se selecciona una categoría
     const botonesCategorias = document.querySelectorAll('.dropdown-item');
@@ -34,34 +38,31 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Lógica para la barra de búsqueda
     const barraBusqueda = document.getElementById('busqueda');
+    const contenedor = document.getElementById("productos-container");
     barraBusqueda.addEventListener('input', () => {
         const valorBusqueda = barraBusqueda.value.toLowerCase();
         const productosFiltrados = productos.filter(producto =>
             producto.title.toLowerCase().includes(valorBusqueda) ||
             producto.description.toLowerCase().includes(valorBusqueda)
         );
-        mostrarProductosEnTarjetas(productosFiltrados);
+        contenedor.innerHTML = '';
+
+        if (productosFiltrados.length === 0) {
+            // Crear el mensaje dinámicamente
+            const mensaje = document.createElement('p');
+            mensaje.textContent = 'No se encontraron productos 😔';
+            mensaje.style.color = '#0c052c';
+            mensaje.style.textAlign = 'center';
+            mensaje.style.fontSize = '1.5rem';
+
+            // Insertar el mensaje en el contenedor
+            contenedor.appendChild(mensaje);
+        } else {
+            // Ocultar el mensaje y mostrar productos si se encontraron
+            mostrarProductosEnTarjetas(productosFiltrados);
+        }
     });
 });
-
-// Función para filtrar productos por categoría
-function filtrarPorCategoria(categoria, productos) {
-    let productosFiltrados;
-
-    if (categoria === 'todos') {
-        productosFiltrados = productos;
-    } else if (categoria === 'clothing') {
-        // Filtrar por ambas categorías de ropa: "men's clothing" y "women's clothing"
-        productosFiltrados = productos.filter(producto =>
-            producto.category === "men's clothing" || producto.category === "women's clothing"
-        );
-    } else {
-        // Filtrar por las demás categorías como 'electronics' y 'jewelery'
-        productosFiltrados = productos.filter(producto => producto.category === categoria);
-    }
-
-    mostrarProductosEnTarjetas(productosFiltrados);
-}
 
 // Lógica de agregar al carrito cuando se hace clic en un producto
 window.agregarAlCarrito = function (id) {

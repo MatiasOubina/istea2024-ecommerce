@@ -251,6 +251,10 @@ main {
      height: 600px;
 }
 
+.spinner-grow{
+    color: var(--clr-main-light);
+}
+
 @media (max-width: 767.98px) {
     main {
         margin: 1rem;
@@ -265,6 +269,10 @@ main {
         border-bottom: 1px solid white;
         padding-bottom: 15px ;
        
+    }
+
+    #carouselExample{
+        display: none;
     }
 }
 
