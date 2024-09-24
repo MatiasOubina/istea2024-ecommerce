@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
 :root{
-    --clr-main: #4b33a8;
+    --clr-main: #0c052c;
     --clr-main-light:#785ce9;
     --clr-white: #ececec; 
     --clr-gray: #e2e2e2;
@@ -121,7 +121,7 @@ main {
 /* Estilos básicos para las cards */
 .card {
     background-color: #fff;
-    border: 1px solid #ddd;
+    border: 1px solid #000000;
     border-radius: 10px;
     padding: 15px;
     text-align: center;
@@ -240,6 +240,15 @@ main {
 .dropdown-item:hover {
     background-color: var(--clr-main-light); /* Color de fondo en hover */
     color: var(--clr-white);                 /* Color del texto en hover */
+}
+
+
+/* #carouselExample{
+    height: 200px;
+}*/
+
+.img-c{
+     height: 600px;
 }
 
 @media (max-width: 767.98px) {
