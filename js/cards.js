@@ -63,15 +63,3 @@ function mostrarDetalleProducto(id, productos) {
 }
 
 
-const modalCuerpo = document.querySelector('.modal-body');
-
-modalCuerpo.addEventListener('click', (event) => {
-    if (event.target.classList.contains('btn-agregarCarrito')) {
-        const id = event.target.getAttribute('data-id');
-
-        // Llama a la función que obtiene los productos y agrega al carrito
-        getProductos().then(productos => {
-            agregarAlCarrito(id, productos); // Asegúrate de convertir el id a número si es necesario
-        });
-    }
-});
