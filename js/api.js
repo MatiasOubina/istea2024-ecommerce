@@ -17,3 +17,4 @@ export async function getCategories() {
         console.error(`$Falló la conexión con API: ${error}`);
     }
 }
+

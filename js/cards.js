@@ -3,12 +3,12 @@ export function mostrarProductosEnTarjetas(productos) {
     const contenedor = document.getElementById("productos-container");
 
     contenedor.innerHTML = "";
-    
+
     productos.forEach(producto => { //recorro el array de productos
         const tarjeta = document.createElement("div");
         tarjeta.classList.add("card");
-        
-        
+
+
         tarjeta.innerHTML = `
         <img src="${producto.image}" alt="${producto.title}" class="card-img">
         <div class="card-body">
@@ -18,10 +18,10 @@ export function mostrarProductosEnTarjetas(productos) {
                 
         </div>
         `;
-        
+
         contenedor.appendChild(tarjeta); // añado la tarjeta al contenedor
     });
-    
+
     //Selecciono todos los botones de los productos
     document.querySelectorAll('.btnVerDetalle').forEach(boton => {
         //Evento escuchador: cuando el usuario hace clic en ver detalle se abre el modal
@@ -30,8 +30,6 @@ export function mostrarProductosEnTarjetas(productos) {
             mostrarDetalleProducto(idProducto, productos);
         });
     });
-    
-   
 }
 
 // Función para mostrar el modal con los detalles del producto
@@ -63,3 +61,17 @@ function mostrarDetalleProducto(id, productos) {
     const modalMostrar = new bootstrap.Modal(modal);
     modalMostrar.show();
 }
+
+
+const modalCuerpo = document.querySelector('.modal-body');
+
+modalCuerpo.addEventListener('click', (event) => {
+    if (event.target.classList.contains('btn-agregarCarrito')) {
+        const id = event.target.getAttribute('data-id');
+
+        // Llama a la función que obtiene los productos y agrega al carrito
+        getProductos().then(productos => {
+            agregarAlCarrito(id, productos); // Asegúrate de convertir el id a número si es necesario
+        });
+    }
+});

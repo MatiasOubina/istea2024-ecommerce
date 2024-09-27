@@ -1,5 +1,6 @@
 let carrito = [];
 
+//Franco
 function cargarCarritoLocalStorage() {
     const carritoGuardado = localStorage.getItem('carrito');
     if (carritoGuardado) {
@@ -8,10 +9,12 @@ function cargarCarritoLocalStorage() {
     actualizarCarrito();
 }
 
+//Franco
 function guardarCarritoLocalStorage() {
     localStorage.setItem('carrito', JSON.stringify(carrito));
 }
 
+//Mati
 // Función para agregar productos al carrito
 export function agregarAlCarrito(id, productos) {
     const productoSeleccionado = productos.find(producto => producto.id === id);
@@ -40,6 +43,7 @@ export function agregarAlCarrito(id, productos) {
     }
 }
 
+//Franco
 // Función para actualizar el carrito
 export function actualizarCarrito() {
     const listaCarrito = document.getElementById("carrito-lista");
@@ -114,6 +118,7 @@ export function actualizarCarrito() {
     guardarCarritoLocalStorage();
 }
 
+//Juan
 // Función para eliminar productos del carrito
 function eliminarProducto(id) {
     const producto = carrito.find(item => item.id === id); //Primero buscamos el producto en el carrito usando find.
@@ -132,18 +137,7 @@ function eliminarProducto(id) {
                     background: "linear-gradient(to right, #f6d365, #fda085)",
                 }
             }).showToast();
-        } else {
-            carrito = carrito.filter(item => item.id !== id);
-
-            Toastify({
-                text: `${producto.title} eliminado del carrito.`,
-                close: true,
-                className: "error",
-                style: {
-                    background: "linear-gradient(to right, #ff5f6d, #ffc371)",
-                }
-            }).showToast();
-        }
+        } 
     }
 
     guardarCarritoLocalStorage();
@@ -152,6 +146,7 @@ function eliminarProducto(id) {
     //Con esto, cada vez que se borra un producto, solo se reduce su cantidad, y si llega a 1 y se elimina, se quita por completo del carrito.
 }
 
+//Juan 
 function eliminarProductoDirecto(id) {
     const producto = carrito.find(item => item.id === id);
 
@@ -170,7 +165,7 @@ function eliminarProductoDirecto(id) {
     guardarCarritoLocalStorage();
 }
 
-
+//Mati
 // Función para finalizar la compra
 export function finalizarCompra() {
     if (carrito.length === 0) {
@@ -189,6 +184,7 @@ export function finalizarCompra() {
     }
 }
 
+//Mati
 export function limpiarCarrito() {
     carrito = [];
     actualizarCarrito();
